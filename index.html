@@ -701,7 +701,26 @@
     #details .section-title {
       font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
       font-weight: 700;
+      font-style: italic;
       color: var(--dark);
+    }
+    /* Luxury bordered details section */
+    #details {
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1);
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+    .flourish {
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .detail-icon {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
     }
     #details .section-label {
       font-family: 'Montserrat', sans-serif;
@@ -755,15 +774,15 @@
 
     <section class="section" id="villa">
         <section class="section" id="details">
-            <div class="section-label">Villa Details</div>
+            <div class="section-label">Villa Details<span class="flourish">&#127807;</span></div>
             <h2 class="section-title">A beautiful luxury villa that can accommodate up to 6 persons.</h2>
             <p class="section-text">Villa Nathalie is a brand‑new, tastefully furnished property with three bedrooms spread over two floors. It has a spacious living room with a fireplace, a dining area, air‑conditioning, and a kitchen plus a large entertaining area that adjoins the terrace and garden.</p>
             <p class="section-text">Located 10 km from the Franciscan Monastery, it offers a tranquil escape with easy access to local attractions.</p>
             <div class="detail-row">
-                <div class="detail-item"><strong>Capacity</strong> 6 persons</div>
-                <div class="detail-item"><strong>Bedrooms</strong> 3</div>
-                <div class="detail-item"><strong>Bathrooms</strong> 3</div>
-                <div class="detail-item"><strong>Pool</strong> private</div>
+                <div class="detail-item"><span class="detail-icon">👥</span><strong>Capacity</strong> 6 persons</div>
+                <div class="detail-item"><span class="detail-icon">🛏️</span><strong>Bedrooms</strong> 3</div>
+                <div class="detail-item"><span class="detail-icon">🛁</span><strong>Bathrooms</strong> 3</div>
+                <div class="detail-item"><span class="detail-icon">🏊</span><strong>Pool</strong> private</div>
             </div>
             <hr class="gold-divider" />
             <ul class="amenities">
