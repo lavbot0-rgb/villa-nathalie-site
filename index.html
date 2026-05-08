@@ -358,6 +358,11 @@
     .amenities-section {
       padding: 0;
       background: transparent;
+      margin-top: 44px;
+    }
+
+    .details-split {
+      margin-bottom: 44px;
     }
 
     .section-line {
@@ -371,33 +376,33 @@
     .amenities-grid {
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 18px;
-      margin: 38px auto;
+      gap: 28px;
+      margin: 48px auto;
       width: 100%;
     }
 
     .amenity-card {
       grid-column: span 3;
-      min-height: 72px;
-      border: 1px solid rgba(184, 155, 106, 0.38);
-      border-radius: 14px;
-      background: rgba(255, 252, 246, 0.32);
+      min-height: 96px;
+      border: 1px solid rgba(184, 155, 106, 0.45);
+      border-radius: 16px;
+      background: rgba(255, 252, 246, 0.45);
       display: flex;
       align-items: center;
-      gap: 18px;
-      padding: 14px 22px;
+      gap: 24px;
+      padding: 22px 30px;
       box-sizing: border-box;
       font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      font-size: clamp(18px, 1.15vw, 24px);
+      font-size: clamp(19px, 1.3vw, 27px);
       color: #2a241d;
-      line-height: 1.15;
+      line-height: 1.18;
       box-shadow: 0 2px 10px rgba(185, 151, 91, 0.06);
     }
 
     .amenity-icon {
-      width: 52px;
-      height: 52px;
-      flex: 0 0 52px;
+      width: 62px;
+      height: 62px;
+      flex: 0 0 62px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -424,7 +429,8 @@
 
       .amenity-card {
         grid-column: span 1;
-        padding: 16px 20px;
+        min-height: 88px;
+        padding: 20px 24px;
         font-size: 21px;
       }
     }
@@ -437,16 +443,16 @@
       }
 
       .amenity-card {
-        min-height: 70px;
+        min-height: 78px;
         gap: 16px;
-        padding: 16px 18px;
+        padding: 18px 18px;
         font-size: 18px;
       }
 
       .amenity-icon {
-        width: 44px;
-        height: 44px;
-        flex-basis: 44px;
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
       }
     }
 
@@ -1092,64 +1098,65 @@
           <h2 class="section-title">A beautiful luxury villa that can accommodate up to 6 persons.</h2>
           <p class="section-text">Villa Nathalie is a brand‑new, tastefully furnished property with three bedrooms spread over two floors. It has a spacious living room with a fireplace, a dining area, air‑conditioning, and a kitchen plus a large entertaining area that adjoins the terrace and garden.</p>
           <p class="section-text">Located 10 km from the Franciscan Monastery, it offers a tranquil escape with easy access to local attractions.</p>
-          <section class="amenities-section">
-            <div class="section-line"></div>
-
-            <div class="amenities-grid">
-              <div class="amenity-card">
-                <span class="amenity-icon"><img src="images/simbols/private_pool.png" alt="" aria-hidden="true" /></span>
-                <span>Private pool</span>
-              </div>
-              <div class="amenity-card">
-                <span class="amenity-icon"><img src="images/simbols/outdoor_jacuzzi.png" alt="" aria-hidden="true" /></span>
-                <span>Outdoor Jacuzzi</span>
-              </div>
-              <div class="amenity-card">
-                <span class="amenity-icon"><img src="images/simbols/sauna_spa.png" alt="" aria-hidden="true" /></span>
-                <span>Outdoor sauna and spa facilities</span>
-              </div>
-              <div class="amenity-card">
-                <span class="amenity-icon"><img src="images/simbols/seasonal_outdoor_pool.png" alt="" aria-hidden="true" /></span>
-                <span>Seasonal outdoor swimming pool</span>
-              </div>
-              <div class="amenity-card">
-                <span class="amenity-icon"><img src="images/simbols/terrace_garden.png" alt="" aria-hidden="true" /></span>
-                <span>Terrace and garden</span>
-              </div>
-              <div class="amenity-card">
-                <span class="amenity-icon"><img src="images/simbols/free_wifi.png" alt="" aria-hidden="true" /></span>
-                <span>Free Wi‑Fi</span>
-              </div>
-              <div class="amenity-card">
-                <span class="amenity-icon"><img src="images/simbols/kitchen.png" alt="" aria-hidden="true" /></span>
-                <span>Kitchen</span>
-              </div>
-              <div class="amenity-card">
-                <span class="amenity-icon"><img src="images/simbols/fireplace.png" alt="" aria-hidden="true" /></span>
-                <span>Fireplace in living room</span>
-              </div>
-              <div class="amenity-card">
-                <span class="amenity-icon"><img src="images/simbols/private_parking.png" alt="" aria-hidden="true" /></span>
-                <span>Private parking on‑site</span>
-              </div>
-              <div class="amenity-card">
-                <span class="amenity-icon"><img src="images/simbols/air_conditioning.png" alt="" aria-hidden="true" /></span>
-                <span>Air‑conditioning</span>
-              </div>
-              <div class="amenity-card">
-                <span class="amenity-icon"><img src="images/simbols/sun_loungers.png" alt="" aria-hidden="true" /></span>
-                <span>Sun loungers</span>
-              </div>
-            </div>
-
-            <div class="section-line"></div>
-          </section>
         </section>
 
         <div class="split-image">
           <img src="images/290355.jpg" alt="Villa Nathalie pool and garden view" />
         </div>
       </div>
+
+      <section class="amenities-section">
+        <div class="section-line"></div>
+
+        <div class="amenities-grid">
+          <div class="amenity-card">
+            <span class="amenity-icon"><img src="images/simbols/private_pool.png" alt="" aria-hidden="true" /></span>
+            <span>Private pool</span>
+          </div>
+          <div class="amenity-card">
+            <span class="amenity-icon"><img src="images/simbols/outdoor_jacuzzi.png" alt="" aria-hidden="true" /></span>
+            <span>Outdoor Jacuzzi</span>
+          </div>
+          <div class="amenity-card">
+            <span class="amenity-icon"><img src="images/simbols/sauna_spa.png" alt="" aria-hidden="true" /></span>
+            <span>Outdoor sauna and spa facilities</span>
+          </div>
+          <div class="amenity-card">
+            <span class="amenity-icon"><img src="images/simbols/seasonal_outdoor_pool.png" alt="" aria-hidden="true" /></span>
+            <span>Seasonal outdoor swimming pool</span>
+          </div>
+          <div class="amenity-card">
+            <span class="amenity-icon"><img src="images/simbols/terrace_garden.png" alt="" aria-hidden="true" /></span>
+            <span>Terrace and garden</span>
+          </div>
+          <div class="amenity-card">
+            <span class="amenity-icon"><img src="images/simbols/free_wifi.png" alt="" aria-hidden="true" /></span>
+            <span>Free Wi‑Fi</span>
+          </div>
+          <div class="amenity-card">
+            <span class="amenity-icon"><img src="images/simbols/kitchen.png" alt="" aria-hidden="true" /></span>
+            <span>Kitchen</span>
+          </div>
+          <div class="amenity-card">
+            <span class="amenity-icon"><img src="images/simbols/fireplace.png" alt="" aria-hidden="true" /></span>
+            <span>Fireplace in living room</span>
+          </div>
+          <div class="amenity-card">
+            <span class="amenity-icon"><img src="images/simbols/private_parking.png" alt="" aria-hidden="true" /></span>
+            <span>Private parking on‑site</span>
+          </div>
+          <div class="amenity-card">
+            <span class="amenity-icon"><img src="images/simbols/air_conditioning.png" alt="" aria-hidden="true" /></span>
+            <span>Air‑conditioning</span>
+          </div>
+          <div class="amenity-card">
+            <span class="amenity-icon"><img src="images/simbols/sun_loungers.png" alt="" aria-hidden="true" /></span>
+            <span>Sun loungers</span>
+          </div>
+        </div>
+
+        <div class="section-line"></div>
+      </section>
     </section>
 
     <section class="section">
