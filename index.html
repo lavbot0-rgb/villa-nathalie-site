@@ -943,6 +943,10 @@
     }
 
     @media (max-width: 980px) {
+      .nav {
+        padding: 18px 5%;
+      }
+
       .nav-links {
         display: none;
       }
@@ -957,12 +961,23 @@
         grid-template-columns: 1fr;
       }
 
+      .split,
+      .location-box {
+        gap: 36px;
+      }
+
+      .location-card {
+        padding: 34px 28px;
+      }
+
       .location-item {
         grid-template-columns: 40px 1fr;
+        gap: 14px;
       }
 
       .location-time {
         grid-column: 2;
+        margin-top: 2px;
       }
 
       .welcome-split .split-content {
@@ -1004,15 +1019,72 @@
       .split-image {
         height: 460px;
       }
+
+      .footer {
+        padding-top: 56px;
+      }
     }
 
     @media (max-width: 640px) {
-      .hero {
-        padding-bottom: 70px;
+      .nav {
+        padding: 14px 5%;
       }
 
-      .section {
-        padding: 76px 6%;
+      .logo {
+        font-size: 22px;
+      }
+
+      .hero {
+        min-height: 88vh;
+        align-items: flex-end;
+        padding: 0 5% 56px;
+      }
+
+      .hero h1 {
+        font-size: clamp(38px, 12vw, 58px);
+        line-height: 1;
+        margin-bottom: 18px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        margin-bottom: 24px;
+      }
+
+      .btn-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section,
+      .section-small {
+        padding: 58px 5%;
+      }
+
+      .section-title {
+        font-size: clamp(30px, 9vw, 42px);
+        margin-bottom: 18px;
+      }
+
+      .section-text,
+      .split-content p,
+      #details .section-text,
+      .location-intro {
+        font-size: 16px;
+      }
+
+      .split,
+      .location-box {
+        gap: 26px;
+      }
+
+      .split-image {
+        height: 300px;
+        border-radius: 18px;
       }
 
       .stats,
@@ -1023,18 +1095,86 @@
         grid-template-columns: 1fr;
       }
 
+      .stats {
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .stat {
+        padding: 18px;
+      }
+
+      .card img,
+      .experience,
       .gallery-item img {
         height: 260px;
       }
 
-      .gallery-lightbox {
+      .card-body,
+      .location-card,
+      .form-wrap {
+        padding: 24px 20px;
+      }
+
+      .location-card h3 {
+        font-size: 34px;
+      }
+
+      .location-item {
+        grid-template-columns: 36px 1fr;
+        padding: 14px 0;
+      }
+
+      .location-symbol {
+        width: 36px;
+        height: 36px;
+      }
+
+      .location-symbol img {
+        width: 18px;
+        height: 18px;
+      }
+
+      .location-copy strong,
+      .location-time {
+        font-size: 20px;
+      }
+
+      .location-copy span {
+        font-size: 14px;
+      }
+
+      .map-placeholder iframe {
+        min-height: 320px !important;
+      }
+
+      .gallery-overlay {
         padding: 18px;
+      }
+
+      .gallery-overlay strong {
+        font-size: 34px;
+      }
+
+      .gallery-lightbox {
+        padding: 18px 12px;
+      }
+
+      .lightbox-inner {
+        gap: 12px;
       }
 
       .lightbox-nav {
         width: 44px;
         height: 44px;
         font-size: 24px;
+      }
+
+      .lightbox-close {
+        top: -2px;
+        right: 4px;
+        width: 40px;
+        height: 40px;
       }
 
       .lightbox-prev { left: 8px; }
@@ -1048,8 +1188,28 @@
         height: 64px;
       }
 
-      .form-wrap {
-        padding: 24px;
+      .amenities-grid {
+        margin: 30px auto;
+      }
+
+      .footer {
+        padding: 48px 5% 28px;
+      }
+
+      .footer-grid {
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+
+      .footer-bottom {
+        font-size: 13px;
+      }
+
+      .whatsapp {
+        right: 16px;
+        bottom: 16px;
+        width: 54px;
+        height: 54px;
       }
     }
     .gold-divider {
