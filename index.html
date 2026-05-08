@@ -1323,7 +1323,7 @@
 
   <main>
     <section class="hero">
-      <div class="hero-content" data-parallax-text="0.24">
+      <div class="hero-content" data-parallax-text="0.14">
         <div class="eyebrow">Private Luxury Villa</div>
         <h1>A secluded escape made for unforgettable stays.</h1>
         <p>
@@ -1339,7 +1339,7 @@
 
     <section class="section">
       <div class="split welcome-split">
-        <div class="split-content" data-parallax-text="0.19">
+        <div class="split-content" data-parallax-text="0.11">
           <div class="section-label">Welcome</div>
           <h2 class="section-title">A private sanctuary for slow mornings, golden sunsets, and effortless luxury.</h2>
           <p class="section-text">
@@ -1357,7 +1357,7 @@
 
     <section class="section" id="villa">
       <div class="split details-split">
-        <section class="split-content" id="details" data-parallax-text="0.19">
+        <section class="split-content" id="details" data-parallax-text="0.11">
           <div class="section-label">Villa Details</div>
           <h2 class="section-title">A beautiful luxury villa that can accommodate up to 6 persons.</h2>
           <p class="section-text">Villa Nathalie is a brand‑new, tastefully furnished property with three bedrooms spread over two floors. It has a spacious living room with a fireplace, a dining area, air‑conditioning, and a kitchen plus a large entertaining area that adjoins the terrace and garden.</p>
@@ -1429,7 +1429,7 @@
           <img src="images/290352.jpg" alt="Villa Nathalie living room" data-parallax="0.12" />
         </div>
 
-        <div class="split-content" data-parallax-text="0.19">
+        <div class="split-content" data-parallax-text="0.11">
           <div class="section-label">The Villa</div>
           <h2 class="section-title">Elegant interiors, open-air living, and complete privacy.</h2>
           <p>
@@ -1503,7 +1503,7 @@
     </section>
 
     <section class="section" id="gallery">
-      <div class="center" data-parallax-text="0.13">
+      <div class="center" data-parallax-text="0.08">
         <div class="section-label">Gallery</div>
         <h2 class="section-title">A visual journey through the villa.</h2>
         <p class="section-text">
@@ -1554,7 +1554,7 @@
     </section>
 
     <section class="section dark-section" id="experiences">
-      <div class="center" data-parallax-text="0.13">
+      <div class="center" data-parallax-text="0.08">
         <div class="section-label">Experiences</div>
         <h2 class="section-title">Your stay, beautifully arranged.</h2>
         <p class="section-text">
@@ -1595,7 +1595,7 @@
     </section>
 
     <section class="section" id="location">
-      <div class="center" data-parallax-text="0.13">
+      <div class="center" data-parallax-text="0.08">
         <div class="section-label">Location</div>
         <h2 class="section-title">Perfectly placed for privacy and discovery.</h2>
         <p class="section-text">
@@ -1654,7 +1654,7 @@
     </section>
 
     <section class="section booking" id="booking">
-      <div class="center" data-parallax-text="0.13">
+      <div class="center" data-parallax-text="0.08">
         <div class="section-label">Reservations</div>
         <h2 class="section-title">Request your private stay.</h2>
         <p class="section-text">
@@ -1871,7 +1871,7 @@
         return;
       }
 
-      const heroShift = Math.max(Math.min(window.scrollY * 0.18, 90), -90);
+      const heroShift = Math.max(Math.min(window.scrollY * 0.08, 36), -36);
       document.documentElement.style.setProperty('--hero-shift', `${heroShift}px`);
 
       parallaxElements.forEach((element) => {
@@ -1883,18 +1883,18 @@
       });
 
       parallaxTextElements.forEach((element) => {
-        const speed = Number(element.dataset.parallaxText || 0.16);
+        const speed = Number(element.dataset.parallaxText || 0.1);
         const rect = element.getBoundingClientRect();
         const offset = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * speed;
-        const clamped = Math.max(Math.min(offset, 48), -48);
+        const clamped = Math.max(Math.min(offset, 24), -24);
         element.style.setProperty('--parallax-text-offset', `${clamped}px`);
       });
 
       parallaxBackgrounds.forEach((element) => {
-        const speed = Number(element.dataset.parallaxBg || 0.06);
+        const speed = Number(element.dataset.parallaxBg || 0.04);
         const rect = element.getBoundingClientRect();
         const offset = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * speed;
-        const clamped = Math.max(Math.min(offset, 26), -26);
+        const clamped = Math.max(Math.min(offset, 14), -14);
         element.style.setProperty('--parallax-offset', `${clamped}px`);
       });
     }
