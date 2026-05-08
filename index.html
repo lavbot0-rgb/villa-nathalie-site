@@ -109,8 +109,19 @@
 
     .mobile-menu {
       display: none;
-      font-size: 28px;
+      width: 30px;
+      height: 22px;
       cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mobile-menu span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: currentColor;
+      border-radius: 999px;
     }
 
     .hero {
@@ -654,7 +665,10 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-size: 27px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-family: 'Montserrat', sans-serif;
       box-shadow: 0 12px 35px rgba(0,0,0,0.28);
     }
 
@@ -789,9 +803,7 @@
       padding-bottom: 2.5rem;
     }
     .flourish {
-      font-size: 1.2rem;
-      margin-left: 0.5rem;
-      vertical-align: middle;
+      display: none;
     }
     .detail-icon {
       display: block;
@@ -819,7 +831,7 @@
       <a href="#booking" class="nav-cta">Request Stay</a>
     </nav>
 
-    <div class="mobile-menu">☰</div>
+    <div class="mobile-menu" aria-label="Open navigation" role="button" tabindex="0"><span></span><span></span><span></span></div>
   </header>
 
   <main>
@@ -850,7 +862,7 @@
 
     <section class="section" id="villa">
         <section class="section" id="details">
-            <div class="section-label">Villa Details<span class="flourish">&#127807;</span></div>
+            <div class="section-label">Villa Details</div>
             <h2 class="section-title">A beautiful luxury villa that can accommodate up to 6 persons.</h2>
             <p class="section-text">Villa Nathalie is a brand‑new, tastefully furnished property with three bedrooms spread over two floors. It has a spacious living room with a fireplace, a dining area, air‑conditioning, and a kitchen plus a large entertaining area that adjoins the terrace and garden.</p>
             <p class="section-text">Located 10 km from the Franciscan Monastery, it offers a tranquil escape with easy access to local attractions.</p>
@@ -1200,7 +1212,7 @@
     </div>
   </footer>
 
-  <a class="whatsapp" href="https://wa.me/385000000000" target="_blank" aria-label="Chat on WhatsApp">☘</a>
+  <a class="whatsapp" href="https://wa.me/385000000000" target="_blank" aria-label="Chat on WhatsApp">WA</a>
 
   <script>
     const nav = document.getElementById('nav');
