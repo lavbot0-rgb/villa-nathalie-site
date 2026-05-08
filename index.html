@@ -255,6 +255,20 @@
       font-size: 17px;
     }
 
+    .split-content .section-text {
+      margin: 0 0 22px;
+      max-width: none;
+      text-align: left;
+    }
+
+    .welcome-split .split-content {
+      order: 2;
+    }
+
+    .welcome-split .split-image {
+      order: 1;
+    }
+
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -865,6 +879,14 @@
         grid-template-columns: 1fr;
       }
 
+      .welcome-split .split-content {
+        order: 1;
+      }
+
+      .welcome-split .split-image {
+        order: 2;
+      }
+
       .stats,
       .amenities,
       .experiences {
@@ -1045,76 +1067,92 @@
       </div>
     </section>
 
-    <section class="section center">
-      <div class="section-label">Welcome</div>
-      <h2 class="section-title">A private sanctuary for slow mornings, golden sunsets, and effortless luxury.</h2>
-      <p class="section-text">
-        Villa Nathalie is designed for guests who want privacy, comfort, and a refined sense of place.
-        Whether you are planning a family holiday, a romantic retreat, or an intimate celebration,
-        every corner of the villa is created to feel calm, beautiful, and deeply personal.
-      </p>
+    <section class="section">
+      <div class="split welcome-split">
+        <div class="split-content">
+          <div class="section-label">Welcome</div>
+          <h2 class="section-title">A private sanctuary for slow mornings, golden sunsets, and effortless luxury.</h2>
+          <p class="section-text">
+            Villa Nathalie is designed for guests who want privacy, comfort, and a refined sense of place.
+            Whether you are planning a family holiday, a romantic retreat, or an intimate celebration,
+            every corner of the villa is created to feel calm, beautiful, and deeply personal.
+          </p>
+        </div>
+
+        <div class="split-image">
+          <img src="images/290363.jpg" alt="Villa Nathalie terrace and exterior" />
+        </div>
+      </div>
     </section>
 
     <section class="section" id="villa">
-        <section class="section" id="details">
-            <div class="section-label">Villa Details</div>
-            <h2 class="section-title">A beautiful luxury villa that can accommodate up to 6 persons.</h2>
-            <p class="section-text">Villa Nathalie is a brand‑new, tastefully furnished property with three bedrooms spread over two floors. It has a spacious living room with a fireplace, a dining area, air‑conditioning, and a kitchen plus a large entertaining area that adjoins the terrace and garden.</p>
-            <p class="section-text">Located 10 km from the Franciscan Monastery, it offers a tranquil escape with easy access to local attractions.</p>
-            <section class="amenities-section">
-              <div class="section-line"></div>
+      <div class="split details-split">
+        <section class="split-content" id="details">
+          <div class="section-label">Villa Details</div>
+          <h2 class="section-title">A beautiful luxury villa that can accommodate up to 6 persons.</h2>
+          <p class="section-text">Villa Nathalie is a brand‑new, tastefully furnished property with three bedrooms spread over two floors. It has a spacious living room with a fireplace, a dining area, air‑conditioning, and a kitchen plus a large entertaining area that adjoins the terrace and garden.</p>
+          <p class="section-text">Located 10 km from the Franciscan Monastery, it offers a tranquil escape with easy access to local attractions.</p>
+          <section class="amenities-section">
+            <div class="section-line"></div>
 
-              <div class="amenities-grid">
-                <div class="amenity-card">
-                  <span class="amenity-icon"><img src="images/simbols/private_pool.png" alt="" aria-hidden="true" /></span>
-                  <span>Private pool</span>
-                </div>
-                <div class="amenity-card">
-                  <span class="amenity-icon"><img src="images/simbols/outdoor_jacuzzi.png" alt="" aria-hidden="true" /></span>
-                  <span>Outdoor Jacuzzi</span>
-                </div>
-                <div class="amenity-card">
-                  <span class="amenity-icon"><img src="images/simbols/sauna_spa.png" alt="" aria-hidden="true" /></span>
-                  <span>Outdoor sauna and spa facilities</span>
-                </div>
-                <div class="amenity-card">
-                  <span class="amenity-icon"><img src="images/simbols/seasonal_outdoor_pool.png" alt="" aria-hidden="true" /></span>
-                  <span>Seasonal outdoor swimming pool</span>
-                </div>
-                <div class="amenity-card">
-                  <span class="amenity-icon"><img src="images/simbols/terrace_garden.png" alt="" aria-hidden="true" /></span>
-                  <span>Terrace and garden</span>
-                </div>
-                <div class="amenity-card">
-                  <span class="amenity-icon"><img src="images/simbols/free_wifi.png" alt="" aria-hidden="true" /></span>
-                  <span>Free Wi‑Fi</span>
-                </div>
-                <div class="amenity-card">
-                  <span class="amenity-icon"><img src="images/simbols/kitchen.png" alt="" aria-hidden="true" /></span>
-                  <span>Kitchen</span>
-                </div>
-                <div class="amenity-card">
-                  <span class="amenity-icon"><img src="images/simbols/fireplace.png" alt="" aria-hidden="true" /></span>
-                  <span>Fireplace in living room</span>
-                </div>
-                <div class="amenity-card">
-                  <span class="amenity-icon"><img src="images/simbols/private_parking.png" alt="" aria-hidden="true" /></span>
-                  <span>Private parking on‑site</span>
-                </div>
-                <div class="amenity-card">
-                  <span class="amenity-icon"><img src="images/simbols/air_conditioning.png" alt="" aria-hidden="true" /></span>
-                  <span>Air‑conditioning</span>
-                </div>
-                <div class="amenity-card">
-                  <span class="amenity-icon"><img src="images/simbols/sun_loungers.png" alt="" aria-hidden="true" /></span>
-                  <span>Sun loungers</span>
-                </div>
+            <div class="amenities-grid">
+              <div class="amenity-card">
+                <span class="amenity-icon"><img src="images/simbols/private_pool.png" alt="" aria-hidden="true" /></span>
+                <span>Private pool</span>
               </div>
+              <div class="amenity-card">
+                <span class="amenity-icon"><img src="images/simbols/outdoor_jacuzzi.png" alt="" aria-hidden="true" /></span>
+                <span>Outdoor Jacuzzi</span>
+              </div>
+              <div class="amenity-card">
+                <span class="amenity-icon"><img src="images/simbols/sauna_spa.png" alt="" aria-hidden="true" /></span>
+                <span>Outdoor sauna and spa facilities</span>
+              </div>
+              <div class="amenity-card">
+                <span class="amenity-icon"><img src="images/simbols/seasonal_outdoor_pool.png" alt="" aria-hidden="true" /></span>
+                <span>Seasonal outdoor swimming pool</span>
+              </div>
+              <div class="amenity-card">
+                <span class="amenity-icon"><img src="images/simbols/terrace_garden.png" alt="" aria-hidden="true" /></span>
+                <span>Terrace and garden</span>
+              </div>
+              <div class="amenity-card">
+                <span class="amenity-icon"><img src="images/simbols/free_wifi.png" alt="" aria-hidden="true" /></span>
+                <span>Free Wi‑Fi</span>
+              </div>
+              <div class="amenity-card">
+                <span class="amenity-icon"><img src="images/simbols/kitchen.png" alt="" aria-hidden="true" /></span>
+                <span>Kitchen</span>
+              </div>
+              <div class="amenity-card">
+                <span class="amenity-icon"><img src="images/simbols/fireplace.png" alt="" aria-hidden="true" /></span>
+                <span>Fireplace in living room</span>
+              </div>
+              <div class="amenity-card">
+                <span class="amenity-icon"><img src="images/simbols/private_parking.png" alt="" aria-hidden="true" /></span>
+                <span>Private parking on‑site</span>
+              </div>
+              <div class="amenity-card">
+                <span class="amenity-icon"><img src="images/simbols/air_conditioning.png" alt="" aria-hidden="true" /></span>
+                <span>Air‑conditioning</span>
+              </div>
+              <div class="amenity-card">
+                <span class="amenity-icon"><img src="images/simbols/sun_loungers.png" alt="" aria-hidden="true" /></span>
+                <span>Sun loungers</span>
+              </div>
+            </div>
 
-              <div class="section-line"></div>
-            </section>
+            <div class="section-line"></div>
+          </section>
         </section>
+
+        <div class="split-image">
+          <img src="images/290355.jpg" alt="Villa Nathalie pool and garden view" />
+        </div>
+      </div>
     </section>
+
+    <section class="section">
       <div class="split">
         <div class="split-image">
           <img src="images/290352.jpg" alt="Villa Nathalie living room" />
