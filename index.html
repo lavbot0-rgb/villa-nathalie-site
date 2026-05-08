@@ -444,13 +444,170 @@
       margin-top: 56px;
     }
 
-    .gallery-grid img {
-      height: 100%;
+    .gallery-item {
+      position: relative;
+      display: block;
+      border: none;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+      overflow: hidden;
       border-radius: var(--radius);
     }
 
-    .gallery-grid img:first-child {
+    .gallery-item img {
+      height: 100%;
+      width: 100%;
+      border-radius: var(--radius);
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-item:first-child {
       grid-row: span 2;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(rgba(17, 17, 17, 0.15), rgba(17, 17, 17, 0.58));
+      color: var(--white);
+      text-align: center;
+      padding: 24px;
+    }
+
+    .gallery-overlay strong {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .gallery-overlay span {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .gallery-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 8, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 32px;
+    }
+
+    .gallery-lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      width: min(1180px, 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .lightbox-stage {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+    }
+
+    .lightbox-stage img {
+      max-width: 100%;
+      max-height: 78vh;
+      border-radius: 18px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+    }
+
+    .lightbox-close,
+    .lightbox-nav {
+      border: none;
+      cursor: pointer;
+      color: var(--white);
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -6px;
+      right: 0;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      font-size: 28px;
+      display: grid;
+      place-items: center;
+    }
+
+    .lightbox-prev { left: 18px; }
+    .lightbox-next { right: 18px; }
+
+    .lightbox-caption {
+      color: rgba(255,255,255,0.82);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .lightbox-thumbs {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      width: 100%;
+      max-height: 132px;
+      overflow: auto;
+      padding-bottom: 4px;
+    }
+
+    .lightbox-thumb {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: none;
+      padding: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      opacity: 0.62;
+      cursor: pointer;
+    }
+
+    .lightbox-thumb.active {
+      opacity: 1;
+      border-color: rgba(255,255,255,0.72);
+    }
+
+    .lightbox-thumb img {
+      width: 100%;
+      height: 78px;
+      object-fit: cover;
+      display: block;
     }
 
     .experiences {
@@ -689,7 +846,7 @@
       }
 
       .mobile-menu {
-        display: block;
+        display: flex;
       }
 
       .split,
@@ -713,10 +870,17 @@
         grid-template-rows: auto;
       }
 
-      .gallery-grid img,
-      .gallery-grid img:first-child {
+      .gallery-item,
+      .gallery-item:first-child {
         grid-row: auto;
+      }
+
+      .gallery-item img {
         height: 300px;
+      }
+
+      .lightbox-thumbs {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
       .split-image {
@@ -741,8 +905,29 @@
         grid-template-columns: 1fr;
       }
 
-      .gallery-grid img {
+      .gallery-item img {
         height: 260px;
+      }
+
+      .gallery-lightbox {
+        padding: 18px;
+      }
+
+      .lightbox-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 24px;
+      }
+
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+
+      .lightbox-thumbs {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .lightbox-thumb img {
+        height: 64px;
       }
 
       .form-wrap {
@@ -1009,13 +1194,37 @@
       </div>
 
       <div class="gallery-grid">
-        <img src="images/4284320.jpg" alt="Villa Nathalie exterior" />
-        <img src="images/290354.jpg" alt="Villa Nathalie view" />
-        <img src="images/290357.jpg" alt="Villa Nathalie interior" />
-        <img src="images/290358.jpg" alt="Villa Nathalie terrace" />
-        <img src="images/181249821.jpg" alt="Villa Nathalie bedroom" />
+        <button class="gallery-item" type="button" data-gallery-index="0" aria-label="Open full villa gallery">
+          <img src="images/4284320.jpg" alt="Villa Nathalie exterior" />
+        </button>
+        <button class="gallery-item" type="button" data-gallery-index="1" aria-label="Open full villa gallery">
+          <img src="images/290354.jpg" alt="Villa Nathalie view" />
+        </button>
+        <button class="gallery-item" type="button" data-gallery-index="2" aria-label="Open full villa gallery">
+          <img src="images/290357.jpg" alt="Villa Nathalie interior" />
+        </button>
+        <button class="gallery-item" type="button" data-gallery-index="3" aria-label="Open full villa gallery">
+          <img src="images/290365.jpg" alt="Villa Nathalie dining area" />
+        </button>
+        <button class="gallery-item" type="button" data-gallery-index="4" aria-label="Open full villa gallery">
+          <img src="images/695975153.jpg" alt="Villa Nathalie terrace detail" />
+          <span class="gallery-overlay"><strong>+ 40 more</strong><span>Open full gallery</span></span>
+        </button>
       </div>
     </section>
+
+    <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+      <button class="lightbox-close" type="button" aria-label="Close gallery">×</button>
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous photo">‹</button>
+      <div class="lightbox-inner">
+        <div class="lightbox-stage">
+          <img id="lightboxImage" src="" alt="Villa Nathalie gallery photo" />
+        </div>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+        <div class="lightbox-thumbs" id="lightboxThumbs"></div>
+      </div>
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="Next photo">›</button>
+    </div>
 
     <section class="section-small center">
       <div class="section-label">Guest Words</div>
@@ -1223,6 +1432,78 @@
       } else {
         nav.classList.remove('scrolled');
       }
+    });
+
+    const galleryPhotos = [
+      '4284320.jpg','290354.jpg','290357.jpg','290365.jpg','695975153.jpg','181249783.jpg','181249787.jpg','181249801.jpg','181249804.jpg','181249808.jpg',
+      '181249814.jpg','181249821.jpg','181249829.jpg','181249836.jpg','181249841.jpg','181249850.jpg','181249860.jpg','181249865.jpg','181249869.jpg','181249872.jpg',
+      '181249878.jpg','181249883.jpg','181249892.jpg','181249898.jpg','181249917.jpg','181249922.jpg','181249928.jpg','181249935.jpg','290352.jpg','290355.jpg',
+      '290358.jpg','290363.jpg','290364.jpg','290366.jpg','290367.jpg','290368.jpg','290369.jpg','290370.jpg','290371.jpg','290373.jpg',
+      '290374.jpg','290375.jpg','290376.jpg','290378.jpg','290382.jpg'
+    ];
+
+    const galleryButtons = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxThumbs = document.getElementById('lightboxThumbs');
+    const closeLightboxButton = document.querySelector('.lightbox-close');
+    const prevLightboxButton = document.querySelector('.lightbox-prev');
+    const nextLightboxButton = document.querySelector('.lightbox-next');
+    let currentGalleryIndex = 0;
+
+    function renderLightboxThumbs() {
+      lightboxThumbs.innerHTML = galleryPhotos.map((photo, index) => `
+        <button class="lightbox-thumb${index === currentGalleryIndex ? ' active' : ''}" type="button" data-index="${index}" aria-label="Open photo ${index + 1}">
+          <img src="images/${photo}" alt="Villa Nathalie gallery thumbnail ${index + 1}" />
+        </button>
+      `).join('');
+
+      lightboxThumbs.querySelectorAll('.lightbox-thumb').forEach((thumb) => {
+        thumb.addEventListener('click', () => openLightbox(Number(thumb.dataset.index)));
+      });
+    }
+
+    function openLightbox(index) {
+      currentGalleryIndex = index;
+      lightboxImage.src = `images/${galleryPhotos[index]}`;
+      lightboxCaption.textContent = `Photo ${index + 1} of ${galleryPhotos.length}`;
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      renderLightboxThumbs();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function stepLightbox(direction) {
+      const nextIndex = (currentGalleryIndex + direction + galleryPhotos.length) % galleryPhotos.length;
+      openLightbox(nextIndex);
+    }
+
+    galleryButtons.forEach((button) => {
+      button.addEventListener('click', () => openLightbox(Number(button.dataset.galleryIndex || 0)));
+    });
+
+    closeLightboxButton.addEventListener('click', closeLightbox);
+    prevLightboxButton.addEventListener('click', () => stepLightbox(-1));
+    nextLightboxButton.addEventListener('click', () => stepLightbox(1));
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (event.key === 'Escape') closeLightbox();
+      if (event.key === 'ArrowLeft') stepLightbox(-1);
+      if (event.key === 'ArrowRight') stepLightbox(1);
     });
 
     const bookingForm = document.getElementById('bookingForm');
