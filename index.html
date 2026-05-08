@@ -491,6 +491,12 @@
       margin-bottom: 8px;
     }
 
+    .gallery-overlay strong span {
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: none;
+    }
+
     .gallery-overlay span {
       font-size: 12px;
       text-transform: uppercase;
@@ -822,11 +828,15 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      font-family: 'Montserrat', sans-serif;
       box-shadow: 0 12px 35px rgba(0,0,0,0.28);
+      overflow: hidden;
+    }
+
+    .whatsapp img {
+      width: 64%;
+      height: 64%;
+      object-fit: contain;
+      display: block;
     }
 
     @keyframes fadeUp {
@@ -1208,7 +1218,7 @@
         </button>
         <button class="gallery-item" type="button" data-gallery-index="4" aria-label="Open full villa gallery">
           <img src="images/695975153.jpg" alt="Villa Nathalie terrace detail" />
-          <span class="gallery-overlay"><strong>+ 40 more</strong><span>Open full gallery</span></span>
+          <span class="gallery-overlay"><strong>+ <span id="galleryMoreCount">0</span> more</strong><span>Open full gallery</span></span>
         </button>
       </div>
     </section>
@@ -1296,11 +1306,17 @@
           </ul>
         </div>
 
-        <div class="map-placeholder">
-          <div>
-            <h3 class="serif" style="font-size: 34px; font-weight: 400;">Map Area</h3>
-            <p>Add real Google Maps embed here.</p>
-          </div>
+        <div class="map-placeholder" style="padding:0; overflow:hidden;">
+          <iframe
+            src="https://maps.google.com/maps?q=Linardi%C4%87i%20115C%2C%20Linardi%C4%87i%2C%20Krk%20Island%2C%20Croatia&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0; min-height:430px;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+            title="Villa Nathalie location map"
+          ></iframe>
         </div>
       </div>
     </section>
@@ -1421,7 +1437,9 @@
     </div>
   </footer>
 
-  <a class="whatsapp" href="https://wa.me/385000000000" target="_blank" aria-label="Chat on WhatsApp">WA</a>
+  <a class="whatsapp" href="https://wa.me/385000000000" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="images/simbols/whatsapp.png" alt="" aria-hidden="true" />
+  </a>
 
   <script>
     const nav = document.getElementById('nav');
@@ -1435,14 +1453,13 @@
     });
 
     const galleryPhotos = [
-      '4284320.jpg','290354.jpg','290357.jpg','290365.jpg','695975153.jpg','181249783.jpg','181249787.jpg','181249801.jpg','181249804.jpg','181249808.jpg',
-      '181249814.jpg','181249821.jpg','181249829.jpg','181249836.jpg','181249841.jpg','181249850.jpg','181249860.jpg','181249865.jpg','181249869.jpg','181249872.jpg',
-      '181249878.jpg','181249883.jpg','181249892.jpg','181249898.jpg','181249917.jpg','181249922.jpg','181249928.jpg','181249935.jpg','290352.jpg','290355.jpg',
-      '290358.jpg','290363.jpg','290364.jpg','290366.jpg','290367.jpg','290368.jpg','290369.jpg','290370.jpg','290371.jpg','290373.jpg',
-      '290374.jpg','290375.jpg','290376.jpg','290378.jpg','290382.jpg'
+      '4284320.jpg','290354.jpg','290357.jpg','290365.jpg','695975153.jpg','290352.jpg','290355.jpg','290358.jpg','290363.jpg','290364.jpg',
+      '290366.jpg','290367.jpg','290368.jpg','290369.jpg','290370.jpg','290371.jpg','290372.jpg','290373.jpg','290374.jpg','290375.jpg',
+      '290376.jpg','290377.jpg','290378.jpg','290379.jpg','290382.jpg','4284323.jpg','4284324.jpg','4284325.jpg','4284326.jpg','4284327.jpg'
     ];
 
     const galleryButtons = document.querySelectorAll('.gallery-item');
+    const galleryMoreCount = document.getElementById('galleryMoreCount');
     const lightbox = document.getElementById('galleryLightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxCaption = document.getElementById('lightboxCaption');
@@ -1451,6 +1468,8 @@
     const prevLightboxButton = document.querySelector('.lightbox-prev');
     const nextLightboxButton = document.querySelector('.lightbox-next');
     let currentGalleryIndex = 0;
+
+    galleryMoreCount.textContent = Math.max(galleryPhotos.length - 5, 0);
 
     function renderLightboxThumbs() {
       lightboxThumbs.innerHTML = galleryPhotos.map((photo, index) => `
