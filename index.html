@@ -128,12 +128,13 @@
       min-height: 100vh;
       background:
         linear-gradient(var(--overlay), var(--overlay)),
-        url('images/4284323.jpg') center/cover no-repeat;
+        url('images/4284323.jpg') center calc(50% + var(--hero-shift, 0px)) / cover no-repeat;
       color: var(--white);
       display: flex;
       align-items: flex-end;
       padding: 0 6% 90px;
       position: relative;
+      will-change: background-position;
     }
 
     .hero-content {
@@ -247,6 +248,12 @@
       border-radius: var(--radius);
       overflow: hidden;
       height: 620px;
+    }
+
+    [data-parallax] {
+      transform: translate3d(0, var(--parallax-offset, 0px), 0);
+      will-change: transform;
+      transition: transform 0.18s linear;
     }
 
     .split-content p {
@@ -483,7 +490,7 @@
     }
 
     .gallery-item:hover img {
-      transform: scale(1.03);
+      transform: translate3d(0, var(--parallax-offset, 0px), 0) scale(1.03);
     }
 
     .gallery-item:first-child {
@@ -653,7 +660,8 @@
       padding: 24px;
       color: var(--white);
       background-size: cover;
-      background-position: center;
+      background-position: center calc(50% + var(--parallax-offset, 0px));
+      will-change: background-position;
     }
 
     .experience::before {
@@ -1212,6 +1220,16 @@
         height: 54px;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero,
+      .experience,
+      [data-parallax] {
+        transition: none !important;
+        transform: none !important;
+        background-position: center center !important;
+      }
+    }
     .gold-divider {
       border: none;
       border-top: 1px solid var(--gold);
@@ -1325,7 +1343,7 @@
         </div>
 
         <div class="split-image">
-          <img src="images/290363.jpg" alt="Villa Nathalie terrace and exterior" />
+          <img src="images/290363.jpg" alt="Villa Nathalie terrace and exterior" data-parallax="0.12" />
         </div>
       </div>
     </section>
@@ -1340,7 +1358,7 @@
         </section>
 
         <div class="split-image">
-          <img src="images/290355.jpg" alt="Villa Nathalie pool and garden view" />
+          <img src="images/290355.jpg" alt="Villa Nathalie pool and garden view" data-parallax="0.12" />
         </div>
       </div>
 
@@ -1401,7 +1419,7 @@
     <section class="section">
       <div class="split">
         <div class="split-image">
-          <img src="images/290352.jpg" alt="Villa Nathalie living room" />
+          <img src="images/290352.jpg" alt="Villa Nathalie living room" data-parallax="0.12" />
         </div>
 
         <div class="split-content">
@@ -1489,19 +1507,19 @@
 
       <div class="gallery-grid">
         <button class="gallery-item" type="button" data-gallery-index="0" aria-label="Open full villa gallery">
-          <img src="images/4284320.jpg" alt="Villa Nathalie exterior" />
+          <img src="images/4284320.jpg" alt="Villa Nathalie exterior" data-parallax="0.08" />
         </button>
         <button class="gallery-item" type="button" data-gallery-index="1" aria-label="Open full villa gallery">
-          <img src="images/290354.jpg" alt="Villa Nathalie view" />
+          <img src="images/290354.jpg" alt="Villa Nathalie view" data-parallax="0.08" />
         </button>
         <button class="gallery-item" type="button" data-gallery-index="2" aria-label="Open full villa gallery">
-          <img src="images/290357.jpg" alt="Villa Nathalie interior" />
+          <img src="images/290357.jpg" alt="Villa Nathalie interior" data-parallax="0.08" />
         </button>
         <button class="gallery-item" type="button" data-gallery-index="3" aria-label="Open full villa gallery">
-          <img src="images/290365.jpg" alt="Villa Nathalie dining area" />
+          <img src="images/290365.jpg" alt="Villa Nathalie dining area" data-parallax="0.08" />
         </button>
         <button class="gallery-item" type="button" data-gallery-index="4" aria-label="Open full villa gallery">
-          <img src="images/4284326.jpg" alt="Villa Nathalie terrace detail" />
+          <img src="images/4284326.jpg" alt="Villa Nathalie terrace detail" data-parallax="0.08" />
           <span class="gallery-overlay"><strong>+ <span id="galleryMoreCount">0</span> more</strong><span>Open full gallery</span></span>
         </button>
       </div>
@@ -1539,28 +1557,28 @@
       </div>
 
       <div class="experiences">
-        <div class="experience" style="background-image:url('images/695975023.jpg');">
+        <div class="experience" style="background-image:url('images/695975023.jpg');" data-parallax-bg="0.06">
           <div class="experience-content">
             <h3>Private Chef</h3>
             <p>Seasonal dinners prepared at the villa.</p>
           </div>
         </div>
 
-        <div class="experience" style="background-image:url('images/695975046.jpg');">
+        <div class="experience" style="background-image:url('images/695975046.jpg');" data-parallax-bg="0.06">
           <div class="experience-content">
             <h3>Local Tours</h3>
             <p>Discover beaches, villages, and hidden viewpoints.</p>
           </div>
         </div>
 
-        <div class="experience" style="background-image:url('images/695975061.jpg');">
+        <div class="experience" style="background-image:url('images/695975061.jpg');" data-parallax-bg="0.06">
           <div class="experience-content">
             <h3>Boat Days</h3>
             <p>Spend the day exploring the coastline.</p>
           </div>
         </div>
 
-        <div class="experience" style="background-image:url('images/695975089.jpg');">
+        <div class="experience" style="background-image:url('images/695975089.jpg');" data-parallax-bg="0.06">
           <div class="experience-content">
             <h3>Wellness</h3>
             <p>Massage, yoga, and quiet moments of restoration.</p>
@@ -1831,6 +1849,52 @@
       if (event.key === 'ArrowLeft') stepLightbox(-1);
       if (event.key === 'ArrowRight') stepLightbox(1);
     });
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    const parallaxBackgrounds = document.querySelectorAll('[data-parallax-bg]');
+
+    function updateParallax() {
+      if (prefersReducedMotion || window.innerWidth < 768) {
+        document.documentElement.style.setProperty('--hero-shift', '0px');
+        parallaxElements.forEach((element) => element.style.setProperty('--parallax-offset', '0px'));
+        parallaxBackgrounds.forEach((element) => element.style.setProperty('--parallax-offset', '0px'));
+        return;
+      }
+
+      const heroShift = Math.max(Math.min(window.scrollY * 0.18, 90), -90);
+      document.documentElement.style.setProperty('--hero-shift', `${heroShift}px`);
+
+      parallaxElements.forEach((element) => {
+        const speed = Number(element.dataset.parallax || 0.1);
+        const rect = element.getBoundingClientRect();
+        const offset = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * speed;
+        const clamped = Math.max(Math.min(offset, 36), -36);
+        element.style.setProperty('--parallax-offset', `${clamped}px`);
+      });
+
+      parallaxBackgrounds.forEach((element) => {
+        const speed = Number(element.dataset.parallaxBg || 0.06);
+        const rect = element.getBoundingClientRect();
+        const offset = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * speed;
+        const clamped = Math.max(Math.min(offset, 26), -26);
+        element.style.setProperty('--parallax-offset', `${clamped}px`);
+      });
+    }
+
+    let parallaxTicking = false;
+    function requestParallaxUpdate() {
+      if (parallaxTicking) return;
+      parallaxTicking = true;
+      window.requestAnimationFrame(() => {
+        updateParallax();
+        parallaxTicking = false;
+      });
+    }
+
+    updateParallax();
+    window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
+    window.addEventListener('resize', requestParallaxUpdate);
 
     const bookingForm = document.getElementById('bookingForm');
 
