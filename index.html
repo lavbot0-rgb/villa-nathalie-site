@@ -256,6 +256,12 @@
       transition: transform 0.18s linear;
     }
 
+    [data-parallax-text] {
+      transform: translate3d(0, var(--parallax-text-offset, 0px), 0);
+      will-change: transform;
+      transition: transform 0.16s linear;
+    }
+
     .split-content p {
       margin-bottom: 22px;
       color: #46423c;
@@ -1224,7 +1230,8 @@
     @media (prefers-reduced-motion: reduce) {
       .hero,
       .experience,
-      [data-parallax] {
+      [data-parallax],
+      [data-parallax-text] {
         transition: none !important;
         transform: none !important;
         background-position: center center !important;
@@ -1316,7 +1323,7 @@
 
   <main>
     <section class="hero">
-      <div class="hero-content">
+      <div class="hero-content" data-parallax-text="0.24">
         <div class="eyebrow">Private Luxury Villa</div>
         <h1>A secluded escape made for unforgettable stays.</h1>
         <p>
@@ -1332,7 +1339,7 @@
 
     <section class="section">
       <div class="split welcome-split">
-        <div class="split-content">
+        <div class="split-content" data-parallax-text="0.19">
           <div class="section-label">Welcome</div>
           <h2 class="section-title">A private sanctuary for slow mornings, golden sunsets, and effortless luxury.</h2>
           <p class="section-text">
@@ -1350,7 +1357,7 @@
 
     <section class="section" id="villa">
       <div class="split details-split">
-        <section class="split-content" id="details">
+        <section class="split-content" id="details" data-parallax-text="0.19">
           <div class="section-label">Villa Details</div>
           <h2 class="section-title">A beautiful luxury villa that can accommodate up to 6 persons.</h2>
           <p class="section-text">Villa Nathalie is a brand‑new, tastefully furnished property with three bedrooms spread over two floors. It has a spacious living room with a fireplace, a dining area, air‑conditioning, and a kitchen plus a large entertaining area that adjoins the terrace and garden.</p>
@@ -1422,7 +1429,7 @@
           <img src="images/290352.jpg" alt="Villa Nathalie living room" data-parallax="0.12" />
         </div>
 
-        <div class="split-content">
+        <div class="split-content" data-parallax-text="0.19">
           <div class="section-label">The Villa</div>
           <h2 class="section-title">Elegant interiors, open-air living, and complete privacy.</h2>
           <p>
@@ -1496,7 +1503,7 @@
     </section>
 
     <section class="section" id="gallery">
-      <div class="center">
+      <div class="center" data-parallax-text="0.13">
         <div class="section-label">Gallery</div>
         <h2 class="section-title">A visual journey through the villa.</h2>
         <p class="section-text">
@@ -1547,7 +1554,7 @@
     </section>
 
     <section class="section dark-section" id="experiences">
-      <div class="center">
+      <div class="center" data-parallax-text="0.13">
         <div class="section-label">Experiences</div>
         <h2 class="section-title">Your stay, beautifully arranged.</h2>
         <p class="section-text">
@@ -1588,7 +1595,7 @@
     </section>
 
     <section class="section" id="location">
-      <div class="center">
+      <div class="center" data-parallax-text="0.13">
         <div class="section-label">Location</div>
         <h2 class="section-title">Perfectly placed for privacy and discovery.</h2>
         <p class="section-text">
@@ -1647,7 +1654,7 @@
     </section>
 
     <section class="section booking" id="booking">
-      <div class="center">
+      <div class="center" data-parallax-text="0.13">
         <div class="section-label">Reservations</div>
         <h2 class="section-title">Request your private stay.</h2>
         <p class="section-text">
@@ -1852,12 +1859,14 @@
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const parallaxElements = document.querySelectorAll('[data-parallax]');
+    const parallaxTextElements = document.querySelectorAll('[data-parallax-text]');
     const parallaxBackgrounds = document.querySelectorAll('[data-parallax-bg]');
 
     function updateParallax() {
       if (prefersReducedMotion || window.innerWidth < 768) {
         document.documentElement.style.setProperty('--hero-shift', '0px');
         parallaxElements.forEach((element) => element.style.setProperty('--parallax-offset', '0px'));
+        parallaxTextElements.forEach((element) => element.style.setProperty('--parallax-text-offset', '0px'));
         parallaxBackgrounds.forEach((element) => element.style.setProperty('--parallax-offset', '0px'));
         return;
       }
@@ -1871,6 +1880,14 @@
         const offset = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * speed;
         const clamped = Math.max(Math.min(offset, 36), -36);
         element.style.setProperty('--parallax-offset', `${clamped}px`);
+      });
+
+      parallaxTextElements.forEach((element) => {
+        const speed = Number(element.dataset.parallaxText || 0.16);
+        const rect = element.getBoundingClientRect();
+        const offset = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * speed;
+        const clamped = Math.max(Math.min(offset, 48), -48);
+        element.style.setProperty('--parallax-text-offset', `${clamped}px`);
       });
 
       parallaxBackgrounds.forEach((element) => {
