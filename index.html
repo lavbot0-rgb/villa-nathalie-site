@@ -331,110 +331,100 @@
     }
 
     .amenities-section {
-      background: #f6f1e8;
-      padding: 56px 4vw;
+      padding: 0;
+      background: transparent;
     }
 
     .section-line {
       height: 1px;
-      background: #b89b6a;
-      opacity: 0.7;
-      max-width: 92%;
-      margin: 0 auto;
+      background: #cdb88f;
+      opacity: 0.85;
+      width: 100%;
+      margin: 0;
     }
 
     .amenities-grid {
-      max-width: 1480px;
-      margin: 56px auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+      margin: 38px auto;
+      width: 100%;
     }
 
     .amenity-card {
-      min-height: 96px;
-      border: 1px solid rgba(184, 155, 106, 0.45);
-      border-radius: 16px;
-      background: rgba(255, 252, 246, 0.45);
+      grid-column: span 3;
+      min-height: 72px;
+      border: 1px solid rgba(184, 155, 106, 0.38);
+      border-radius: 14px;
+      background: rgba(255, 252, 246, 0.32);
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      gap: 28px;
-      padding: 24px 36px;
+      gap: 18px;
+      padding: 14px 22px;
       box-sizing: border-box;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(18px, 1.45vw, 28px);
-      color: #1f1a14;
-      line-height: 1.2;
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-size: clamp(18px, 1.15vw, 24px);
+      color: #2a241d;
+      line-height: 1.15;
+      box-shadow: 0 2px 10px rgba(185, 151, 91, 0.06);
     }
 
     .amenity-icon {
-      width: 64px;
-      height: 64px;
-      flex: 0 0 64px;
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #9f804a;
+      color: #b5a072;
     }
 
     .amenity-icon svg {
       width: 100%;
       height: 100%;
       stroke: currentColor;
-      stroke-width: 1.6;
+      stroke-width: 1.45;
       fill: none;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
     @media (min-width: 1025px) {
-      .amenity-card:nth-child(9) {
-        grid-column: 1 / span 1;
-        margin-left: 32%;
-      }
-
-      .amenity-card:nth-child(10) {
-        margin-left: 32%;
-      }
-
-      .amenity-card:nth-child(11) {
-        margin-left: 32%;
-      }
+      .amenity-card:nth-child(9) { grid-column: 2 / span 3; }
+      .amenity-card:nth-child(10) { grid-column: 5 / span 3; }
+      .amenity-card:nth-child(11) { grid-column: 8 / span 3; }
     }
 
     @media (max-width: 1024px) {
       .amenities-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .amenity-card {
-        padding: 22px 28px;
+        grid-column: span 1;
+        padding: 16px 20px;
+        font-size: 21px;
       }
     }
 
     @media (max-width: 640px) {
-      .amenities-section {
-        padding: 40px 20px;
-      }
-
       .amenities-grid {
         grid-template-columns: 1fr;
-        gap: 18px;
-        margin: 36px auto;
+        gap: 16px;
+        margin: 28px auto;
       }
 
       .amenity-card {
-        min-height: 82px;
-        gap: 20px;
-        padding: 20px 24px;
-        font-size: 19px;
+        min-height: 70px;
+        gap: 16px;
+        padding: 16px 18px;
+        font-size: 18px;
       }
 
       .amenity-icon {
-        width: 48px;
-        height: 48px;
-        flex-basis: 48px;
+        width: 44px;
+        height: 44px;
+        flex-basis: 44px;
       }
     }
 
@@ -867,26 +857,58 @@
             <h2 class="section-title">A beautiful luxury villa that can accommodate up to 6 persons.</h2>
             <p class="section-text">Villa Nathalie is a brand‑new, tastefully furnished property with three bedrooms spread over two floors. It has a spacious living room with a fireplace, a dining area, air‑conditioning, and a kitchen plus a large entertaining area that adjoins the terrace and garden.</p>
             <p class="section-text">Located 10 km from the Franciscan Monastery, it offers a tranquil escape with easy access to local attractions.</p>
-            <div class="detail-row">
-                <div class="detail-item"><span class="detail-icon">👥</span><strong>Capacity</strong> 6 persons</div>
-                <div class="detail-item"><span class="detail-icon">🛏️</span><strong>Bedrooms</strong> 3</div>
-                <div class="detail-item"><span class="detail-icon">🛁</span><strong>Bathrooms</strong> 3</div>
-                <div class="detail-item"><span class="detail-icon">🏊</span><strong>Pool</strong> private</div>
-            </div>
-            <hr class="gold-divider" />
-            <ul class="amenities">
-                <li class="amenity">Private pool</li>
-                <li class="amenity">Outdoor Jacuzzi</li>
-                <li class="amenity">Outdoor sauna and spa facilities</li>
-                <li class="amenity">Seasonal outdoor swimming pool</li>
-                <li class="amenity">Terrace and garden</li>
-                <li class="amenity">Free Wi‑Fi</li>
-                <li class="amenity">Kitchen</li>
-                <li class="amenity">Fireplace in living room</li>
-                <li class="amenity">Private parking on‑site</li>
-                <li class="amenity">Air‑conditioning</li>
-                <li class="amenity">Sun loungers</li>
-            </ul>
+            <section class="amenities-section">
+              <div class="section-line"></div>
+
+              <div class="amenities-grid">
+                <div class="amenity-card">
+                  <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M3 16c1.2 0 1.8-.7 3-.7s1.8.7 3 .7 1.8-.7 3-.7 1.8.7 3 .7 1.8-.7 3-.7 1.8.7 3 .7"/><path d="M5 16V9l2-3h10l2 3v7"/><path d="M8 10v2"/><path d="M12 9v3"/><path d="M16 10v2"/></svg></span>
+                  <span>Private pool</span>
+                </div>
+                <div class="amenity-card">
+                  <span class="amenity-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="13" rx="7.5" ry="3.5"/><path d="M4.5 13V11.5c0-1.8 3.4-3.5 7.5-3.5s7.5 1.7 7.5 3.5V13"/><path d="M8 6c0-1.1.9-2 2-2"/><path d="M12 5c0-1.1.9-2 2-2"/><path d="M16 6c0-1.1.9-2 2-2"/></svg></span>
+                  <span>Outdoor Jacuzzi</span>
+                </div>
+                <div class="amenity-card">
+                  <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M5 18h14"/><path d="M7 18v-6"/><path d="M12 18v-5"/><path d="M17 18v-7"/><path d="M8 7c0-1.1.9-2 2-2"/><path d="M12 6c0-1.1.9-2 2-2"/><path d="M16 7c0-1.1.9-2 2-2"/></svg></span>
+                  <span>Outdoor sauna and spa facilities</span>
+                </div>
+                <div class="amenity-card">
+                  <span class="amenity-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="6" r="2.5"/><path d="M3 16c1.2 0 1.8-.7 3-.7s1.8.7 3 .7 1.8-.7 3-.7 1.8.7 3 .7"/><path d="M5 16V11l2-3h7"/></svg></span>
+                  <span>Seasonal outdoor swimming pool</span>
+                </div>
+                <div class="amenity-card">
+                  <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M7 19c4.5-1.5 6-6.5 6-12-5.5 0-10.5 2-10.5 7 0 2.9 2 5 4.5 5Z"/><path d="M13 20c4.3 0 8.5-2.3 8.5-8.5-4.8 0-8.5 1.7-8.5 8.5Z"/><path d="M6 18l6-6"/></svg></span>
+                  <span>Terrace and garden</span>
+                </div>
+                <div class="amenity-card">
+                  <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M4.5 10.5a11 11 0 0 1 15 0"/><path d="M7.5 13.5a6.5 6.5 0 0 1 9 0"/><path d="M10.5 16.5a2.5 2.5 0 0 1 3 0"/><circle cx="12" cy="19" r="1"/></svg></span>
+                  <span>Free Wi‑Fi</span>
+                </div>
+                <div class="amenity-card">
+                  <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M8 4v7"/><path d="M5 4c0 1.7 1.3 3 3 3s3-1.3 3-3"/><path d="M8 11v9"/><path d="M16 4v16"/><path d="M13 8h6"/><path d="M13 12h6"/></svg></span>
+                  <span>Kitchen</span>
+                </div>
+                <div class="amenity-card">
+                  <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M5 20V7h14v13"/><path d="M3 20h18"/><path d="M9 20v-4a3 3 0 0 1 6 0v4"/><path d="M10.5 17.5c0-1.2.7-2.4 1.5-3.2.8.8 1.5 2 1.5 3.2"/></svg></span>
+                  <span>Fireplace in living room</span>
+                </div>
+                <div class="amenity-card">
+                  <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M5 14l1.5-5h11L19 14"/><path d="M4 16h16"/><circle cx="8" cy="16" r="2"/><circle cx="16" cy="16" r="2"/><path d="M9 9V6h6v3"/></svg></span>
+                  <span>Private parking on‑site</span>
+                </div>
+                <div class="amenity-card">
+                  <span class="amenity-icon"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="6" rx="1.5"/><path d="M8 17v3"/><path d="M12 17v3"/><path d="M16 17v3"/><path d="M8 13c0 1.1-.9 2-2 2"/><path d="M12 13c0 1.1-.9 2-2 2"/><path d="M16 13c0 1.1-.9 2-2 2"/></svg></span>
+                  <span>Air‑conditioning</span>
+                </div>
+                <div class="amenity-card">
+                  <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M5 16h10"/><path d="M8 16l5-5"/><path d="M13 11h3"/><path d="M18 6v4"/><path d="M16 8h4"/><circle cx="18" cy="6" r="2.5"/></svg></span>
+                  <span>Sun loungers</span>
+                </div>
+              </div>
+
+              <div class="section-line"></div>
+            </section>
         </section>
     </section>
       <div class="split">
@@ -949,7 +971,7 @@
         </article>
 
         <article class="card">
-          <img src="images/181249865.jpg" alt="Garden suite" />}]}
+          <img src="images/181249865.jpg" alt="Garden suite" />
           <div class="card-body">
             <h3>Garden Suite</h3>
             <p>Quiet garden-facing room, soft linens, generous storage, and warm morning light.</p>
@@ -965,68 +987,6 @@
         </article>
       </div>
 
-      <section class="amenities-section">
-        <div class="section-line"></div>
-
-        <div class="amenities-grid">
-          <div class="amenity-card">
-            <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5L22 7L12 2z"/><path d="M2 17h20"/><path d="M6 17v4h12v-4"/></svg></span>
-            <span>Private pool</span>
-          </div>
-
-          <div class="amenity-card">
-            <span class="amenity-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="6"/><path d="M6 22c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M8 14l2-2 2 2 2-2 2 2"/></svg></span>
-            <span>Outdoor Jacuzzi</span>
-          </div>
-
-          <div class="amenity-card">
-            <span class="amenity-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></span>
-            <span>Outdoor sauna and spa facilities</span>
-          </div>
-
-          <div class="amenity-card">
-            <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5L22 7L12 2z"/><circle cx="12" cy="16" r="4"/><line x1="12" y1="12" x2="12" y2="14"/></svg></span>
-            <span>Seasonal outdoor swimming pool</span>
-          </div>
-
-          <div class="amenity-card">
-            <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4"/><path d="M7 17c0-2.8 2.2-5 5-5s5 2.2 5 5"/></svg></span>
-            <span>Terrace and garden</span>
-          </div>
-
-          <div class="amenity-card">
-            <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.9 4.9l2.8 2.8"/><path d="M16.3 16.3l2.8 2.8"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.9 19.1l2.8-2.8"/><path d="M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span>Free Wi-Fi</span>
-          </div>
-
-          <div class="amenity-card">
-            <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 10h16"/><path d="M4 14h16"/><path d="M4 18h10"/><circle cx="18" cy="18" r="2"/></svg></span>
-            <span>Kitchen</span>
-          </div>
-
-          <div class="amenity-card">
-            <span class="amenity-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></span>
-            <span>Fireplace in living room</span>
-          </div>
-
-          <div class="amenity-card">
-            <span class="amenity-icon"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="12" r="2"/></svg></span>
-            <span>Private parking on-site</span>
-          </div>
-
-          <div class="amenity-card">
-            <span class="amenity-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5L22 7L12 2z"/><path d="M7 14h10"/><path d="M9 18h6"/></svg></span>
-            <span>Air-conditioning</span>
-          </div>
-
-          <div class="amenity-card">
-            <span class="amenity-icon"><svg viewBox="0 0 24 24"><rect x="6" y="12" width="12" height="8" rx="1"/><path d="M8 12V8h8v4"/></svg></span>
-            <span>Sun loungers</span>
-          </div>
-        </div>
-
-        <div class="section-line"></div>
-      </section>
     </section>
 
     <section class="section" id="gallery">
